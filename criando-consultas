@@ -1,0 +1,29 @@
+<h1>Criando consultas</h1>
+
+- consulta ao banco de dados
+SELECT nomeproduto FROM produtos 
+
+
+- SELECT com multiplas
+SELECT 
+	nomeproduto, precounitario, tempoentrega 
+FROM
+ produtos
+
+- Como ordenar o número de linhas
+SELECT 
+	nomeproduto, precounitario, tempoentrega 
+FROM
+         produtos
+ORDER BY
+	nomeproduto
+
+- Limitar o número de linhas
+SELECT 
+	nomeproduto, precounitario, tempoentrega 
+FROM
+         produtos
+ORDER BY
+	nomeproduto
+LIMIT
+	5
