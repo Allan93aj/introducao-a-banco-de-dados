@@ -1,4 +1,4 @@
-<h1>Criando consultas</h1>
+Criando consultas
 
 - consulta ao banco de dados
 SELECT nomeproduto FROM produtos 
