@@ -1,0 +1,47 @@
+- FUNÇÃO MIN
+SELECT 
+	MIN(precounitario) as "preço minimo" -- ((MIN - seleciona o preço minimo) e (as - como o nome  da tabela)  )
+FROM
+	produtos
+
+- FUNÇÃO MAX
+SELECT 
+	MAX(precounitario) as "preço maximo"
+FROM
+	produtos
+
+- FUNÇÃO AVG
+SELECT 
+	AVG(precounitario) as "media de preço"
+FROM
+	produtos
+
+- FUNÇÃO SUM
+SELECT sum(valor_pedido) as "total vendido" -- (faz a soma do valor dos pedidos)
+FROM
+	pedidos
+WHERE year(data_pedido) = '2006'
+
+- FUNÇÃO COUNT
+SELECT count(pedidoID) as "total pedidos" -- (utilizado para fazer contagens)
+FROM
+	pedidos
+WHERE year(data_pedido) = '2007'
+
+- GROUP BY
+SELECT count(produtoID) as total_produtos, tempoentrega
+FROM produtos
+GROUP BY
+	tempoentrega
+ORDER BY 
+	total_produtos DESC- (verifica do maior para o menor )
+
+- HAVING -- (utilizado sempre depois do GROUP BY)
+SELECT 
+	status_pedido, SUM(valor_pedido) as SOMA 
+FROM 
+	pedidos
+GROUP BY 
+	status_pedido
+HAVING
+	SOMA >= 6000
