@@ -1,0 +1,44 @@
+- Criando filtros
+
+SELECT -- (seleciona)
+	nomeproduto, precounitario, tempoentrega
+FROM  -- (de)
+	produtos
+WHERE -- (onde)
+	tempoentrega =  5  AND precounitario =  12
+ORDER BY -- (ordena por)
+	precounitario
+LIMIT -- (limite)
+	10
+
+-      Criando um filtro entre intervalos
+
+SELECT 
+	nomeproduto, precounitario, tempoentrega 
+FROM
+         produtos
+WHERE
+	precounitario BETWEEN 5 AND 12 -- (procura o preço entre 5 e 12)
+ORDER BY 
+	precounitario
+
+
+-     Criando um filtro usando o IN
+
+SELECT 
+	nomeproduto, precounitario, tempoentrega 
+FROM
+	produtos
+WHERE
+	tempoentrega IN (5, 30) -- (procura o tempo de entrega entre 5 e 30)
+ORDER BY 
+	tempoentrega
+
+- Criando um filtro com LIKE
+
+SELECT 
+	nomeproduto, precounitario, tempoentrega 
+FROM
+	produtos
+WHERE 
+	nomeproduto LIKE '%blend%' (procura o produto em qualquer posição na frase - no começo, meio ou fim)
