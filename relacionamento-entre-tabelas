@@ -1,0 +1,99 @@
+- Relacionar tabelas com Where
+SELECT 
+	nomeproduto, nomefornecedor
+FROM 
+	produtos, fornecedores
+WHERE 
+	produtos.fornecedorID = fornecedores.fornecedorID
+
+
+- Relacionar tabelas com INNER JOIN
+ex1
+SELECT 
+	nomeproduto, nomefornecedor
+FROM 
+	produtos AS p
+INNER JOIN 
+	fornecedores as f 
+    ON p.fornecedorID = f.fornecedorID
+
+ex2
+SELECT 
+	nomeproduto, nomecategoria
+FROM 
+	produtos AS p
+INNER JOIN 
+	categorias as c 
+ON 
+	p.categoriaID = c.categoriaID
+
+- Relacionar 3 tabelas
+
+SELECT 
+	nomeproduto, nomecategoria, nomefornecedor
+FROM 
+	produtos AS p
+INNER JOIN 
+	categorias as c 
+ON 
+	p.categoriaID = c.categoriaID
+INNER JOIN 
+	fornecedores as f
+ON p.fornecedorID = f.fornecedorID
+
+- Relacionamento com agrupamento
+SELECT 
+	nomecategoria, count(produtoID) AS total
+FROM
+	produtos AS p
+INNER JOIN
+	categorias AS c
+ON
+	p.categoriaID = c.categoriaID
+GROUP BY 
+	p.categoriaID
+
+- Relacionamento com LEFT JOIN
+SELECT 
+	nomecompleto , count(pedidoID) AS total
+FROM
+	clientes AS c
+LEFT JOIN
+	pedidos AS p
+ON
+	c.clienteID = p.clienteID
+GROUP BY 
+	c.clienteID
+ORDER BY
+	total DESC
+
+- Relacionamento por agrupamento e Having
+SELECT 
+	ps.nomestatus,  SUM(valor_pedido) as SOMA
+FROM 
+	pedidos AS p
+INNER JOIN 
+	pedidos_status AS ps
+ON
+	p.status_pedido = ps.statusID
+GROUP BY 
+	status_pedido
+HAVING
+	SOMA >= 6000
+
+- Relacionamento entre tabelas avançado
+SELECT DISTINCT
+	nomecompleto, telefone, email
+FROM
+	clientes AS c
+INNER JOIN
+	pedidos AS p
+ON 
+	c.clienteID = p.clienteID
+INNER JOIN 
+	pedidos_item AS pi
+ON
+	pi.pedidoID = p.pedidoID
+WHERE 
+	produtoID = 2
+
