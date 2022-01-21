@@ -1,0 +1,19 @@
+- Insert
+INSERT INTO 
+	estados(nome, sigla) 
+VALUES ('Allan', 'AN')
+
+- Update
+UPDATE
+	estados
+SET
+	nome = 'Alllllan',
+    sigla = 'AJ'
+WHERE 
+	estadoID = 33
+
+- Delete
+DELETE FROM
+	estados
+WHERE 
+	estadoID = 33
